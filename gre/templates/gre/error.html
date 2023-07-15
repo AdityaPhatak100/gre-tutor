@@ -1,0 +1,19 @@
+{% include 'index.html' %} {% block content %}
+
+<div class="container text-center text-light ">
+    <h1 id="error-msg">404</h1>
+    <h2>You do not have access this page!</h2>
+    {% if words_missing == True %}
+    <h2>Add at least 4 words</h2>
+    
+    {% endif %}
+</div>
+<style>
+    #error-msg {
+        margin-top: 14rem;
+        font-size: 6rem;
+        color: rgba(255, 220, 0, 1);
+    }
+</style>
+
+{% endblock content%}

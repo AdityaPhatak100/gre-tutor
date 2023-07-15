@@ -1,0 +1,14 @@
+
+{% for category in categories %}
+<div
+  class="single-word d-flex justify-content-between align-items-center"
+>
+  <div class="word">{{category}}</div>
+
+  <div class="word-options d-flex">
+    <a href="{% url 'delete-cat' request.user.id category.id %}">
+      <i class="fa-solid fa-xmark fa-2xl" style="color: #ff0000"></i>
+    </a>
+  </div>
+</div>
+{% endfor %}

@@ -1,0 +1,38 @@
+{% include 'index.html' %} {% block content %}
+
+{% comment %} {{ script | safe }} {% endcomment %}
+{{ script1 | safe }}
+{% comment %} {{ script1 | safe }} {% endcomment %}
+{{ script2 | safe }}
+{% comment %} {{ script3 | safe }} {% endcomment %}
+<div class="container">
+    <div class="text-light text-center">
+        <h1>Progress</h1>
+    
+    </div>
+    <div class="container text-center" style="color:white;">
+        <div class="row">
+            <div class="col">
+                <div class="p-2"> {{ div | safe }} </div>
+
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="p-2"> {{ div1 | safe }} </div> <br>
+
+                </div>
+                <div class="row">
+                    <div class="p-2"> {{ div2 | safe }}  </div>
+
+                </div>
+            </div>
+        </div>
+       {% comment %} <div>  {{ div3 | safe }} </div> {% endcomment %}
+        
+    </div>
+
+</div>
+
+
+
+{% endblock content %}

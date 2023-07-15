@@ -1,0 +1,89 @@
+{% include 'index.html' %} {% block content %}
+
+<div class="container text-light">
+  <div class="addword d-flex justify-content-around align-items-center">
+    <div style="width:55%;height: 30rem;overflow-y:scroll;">
+        <div class="text-center">
+            <h1 class="mt-2 mb-4">Added Categories</h1>
+
+        </div>
+        <div class="p-0" style="">
+          <div class="d-flex flex-wrap">
+
+            {% for category in categories %}
+            
+            <h3 class="category-show">{{category}}</h3>
+            
+            {% endfor %}
+
+        </div>
+          
+    </div>
+
+    </div>
+    <form action="" method="POST">
+      {% csrf_token %}
+      <div class="text-center">
+          <h1>Add Category</h1>
+      </div>
+      <table>
+
+        <tr>
+          <th><label for="id_word_name">Cateogory name:</label></th>
+          <td>
+            <input
+              type="text" 
+              name="category_name"
+              maxlength="50"
+              required
+              id="id_category_name"
+              />
+            </td>
+          </tr>
+      </table>
+
+      <div class="d-flex justify-content-around">
+        <input class="btn btn-primary mt-4" type="submit" name="savecategory" value="Save" />
+        <input
+          class="btn btn-primary mt-4"
+          type="submit"
+          name="anothercategory"
+          value="Save and Add Another Category"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+<style>
+    .input-icons i {
+        position: absolute;
+    }
+
+    {% comment %} .input-icons {
+        width: 100%;
+        margin-bottom: 10px;
+    } {% endcomment %}
+
+    .icon {
+        padding-top: 20px;
+        min-width: 40px;
+    }
+
+    textarea {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      margin-left: 20px;
+      padding: 10px;
+      color: white;
+      background-color: #2b2c2f;
+      border: none;
+      border-radius: 8px;
+      -webkit-box-shadow: inset 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: inset 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+      box-shadow: inset 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+    }
+    textarea:focus{
+      outline: none;
+  }
+</style>
+{% endblock content%}

@@ -1,0 +1,26 @@
+{% for word in words %}
+<div class="single-word d-flex justify-content-between align-items-center">
+  <div class="word">{{word.word_name}}</div>
+  <div class="word-options d-flex">
+    <form action="" method="POST">
+      <a href="{% url 'delete-word' request.user.id word.id %}">
+        <i class="fa-solid fa-xmark fa-2xl" style="color: #ff0000"></i>
+      </a>
+      <a href="{% url 'edit-word' request.user.id word.id %}">
+        <i class="fa-solid fa-pen-to-square fa-xl" style="color: #03c988"></i>
+      </a>
+
+      <a type="submit" href="{% url 'word-details' request.user.id word.id %}"
+        ><i class="fa-solid fa-eye-slash fa-xl" style="color: #ffffff"></i
+      ></a>
+    </form>
+  </div>
+</div>
+
+<style>
+  a {
+    text-decoration: none;
+    color: white;
+  }
+</style>
+{% endfor %}

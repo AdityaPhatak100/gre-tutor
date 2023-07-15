@@ -1,0 +1,198 @@
+body {
+  font-family: "Poppins", sans-serif;
+  /* background: url("../images/landing-page-bg.jpg"); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 0px -7rem;
+  background-color: #19191b;
+}
+
+/* ------------------NAVBAR-------------------- */
+
+.navi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  color: white;
+}
+
+.site-title {
+  font-size: 40px;
+  font-weight: 500;
+}
+.site-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-logo img {
+  margin-right: 2.5rem;
+  height: 60px;
+}
+.site-options a {
+  font-size: 20px;
+  margin-right: 2rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s;
+}
+
+.site-options a:hover {
+  color: rgb(253, 179, 52);
+}
+
+/* ------------------NAVBAR-------------------- */
+
+.hero {
+  margin-top: 50px;
+  padding: 20px;
+  color: white;
+}
+
+.title h1 {
+  font-size: 80px;
+}
+.hero-image {
+  margin-bottom: 100px;
+}
+
+.title h3 {
+  margin-top: 60px;
+  color: lightgrey;
+}
+
+
+/* ------------------USER PROFILE-------------------- */
+
+.words-list {
+  height: 32rem;
+  width: 100%;
+  overflow: auto;
+  /* display: none; */
+}
+
+.single-word {
+  margin-top: 5px;
+  background-color: #35383f;
+  border: none;
+  border-top: 3px rgb(59, 59, 64) ridge;
+  border-bottom: 3px rgb(59, 59, 64) ridge;
+}
+.word {
+  font-size: larger;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+.word-options {
+  margin-right: 8px;
+}
+
+.word-options i {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #aaaaaa;
+}
+
+.words-list {
+  padding-bottom: 10px;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+/* .words-list::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+  
+  .display-word-meaning {
+    padding: 30px;
+    height: 24rem;
+    width: 100%;
+    overflow: auto;
+    border-radius: 25px;
+  background-color: #2b2c2f;
+  -webkit-box-shadow: inset 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+}
+
+
+/* ------------------ADD WORD-------------------- */
+
+
+.addword {
+  padding: 2rem;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="select"] {
+  width: 100%;
+  height: 2.5rem;
+  background-color: rgb(0, 0, 0, 0);
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: none;
+  border-bottom: 2px white solid;
+  outline: none;
+  padding: 20px;
+  margin: 10px;
+}
+::-ms-reveal {
+  filter: invert(100%);
+}
+
+.category-show {
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 5px;
+  font-size: 20px;
+  background-color: #35383f;
+  border-radius: 20px;
+}
+
+.question {
+  background-color: rgba(0, 0, 0, 0.468);
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 30px;
+  margin-bottom: 1rem;
+}
+
+.quiz-options {
+  background-color: rgba(255, 255, 255, 0.057);
+  color: black;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.quiz-option-1{
+  background-color: rgb(222, 222, 250);
+  border: 2px rgb(172, 172, 255) solid;
+  margin: 10px;
+  padding: 8px;
+  border-radius: 20px;
+}
+
+.block {
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  background-color: rgb(238, 231, 255);
+  border-radius: 10px;
+}

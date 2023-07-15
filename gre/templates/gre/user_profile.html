@@ -1,0 +1,79 @@
+{% include 'index.html' %} {% block content %}
+
+<div class="container" style="color: white">
+  <div>
+    <h1 class="profile-title text-center">Your Vocabulary</h1>
+  </div>
+  <div class="container p-1 mt-4">
+    {% for m in messages %}
+    <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      {{m}}!
+    </div>
+    {% endfor %}
+    <div class="row gx-5" style="">
+      <div class="col-4" style="order: 2px solid white">
+        <div class="h2 pt-2 text-center">Words</div>
+
+        <div class="words-list">
+
+          {% if sortbycat %}
+          
+          {% include 'gre/display_words_by_cat.html' %}
+          
+          {% else %}
+          
+          {% include 'gre/display_words.html' %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="col" style="order: 2px solid white">
+        <div class="h2 p-2 text-center">Display Meaning</div>
+        <div class="display-word-meaning"></div>
+
+        <div class="h2 p-2 text-center">Other Options</div>
+        <div class="other-options d-flex justify-content-around pl-pr-2">
+          <form action="" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-info btn-lg" type="submit"  name="sortbycat">
+              {% if not sortbycat %}
+              Sort By Category
+              
+              {% else %}
+              Show Word List
+              {% endif %}
+            </button>
+          </form>
+          <a
+            class="btn btn-outline-primary btn-lg"
+            href="{% url 'add-word' request.user.id %}"
+            role="button"
+            ><i
+              class="temp-logo fa-solid fa-plus"
+              style="color: rgb(213, 213, 213)"
+            ></i>
+            Word</a
+          >
+          <a
+            class="btn btn-outline-warning btn-lg"
+            href="{% url 'add-category' request.user.id %}"
+            role="button"
+            ><i
+              class="temp-logo fa-solid fa-plus"
+              style="color: rgb(213, 213, 213)"
+            ></i>
+            Category</a
+          >
+        </div>
+      </div>
+      <div class="col-3" style="order: 2px solid white">
+        <div class="h2 pt-2 text-center">Categories</div>
+        <div class="words-list">
+          {% include 'gre/display_categories.html' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

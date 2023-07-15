@@ -1,0 +1,97 @@
+{% include 'index.html' %} {% block content %}
+
+<div class="container" style="color: white">
+  <div>
+    <h1 class="profile-title text-center">Words and Quizzes</h1>
+  </div>
+  <div class="container p-1 mt-4">
+    <div class="row gx-5" style="">
+      <div class="col-4" style="order: 2px solid white">
+        <div class="h2 pt-2 text-center">Words</div>
+
+        <div class="words-list">
+          {% if sortbycat %}
+          
+          {% include 'gre/display_words_by_cat.html' %}
+          
+          {% else %}
+          
+          {% include 'gre/display_words.html' %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="col" style="order: 2px solid white">
+        <div class="h2 p-2 text-center">Display Meaning</div>
+        <div class="display-word-meaning">
+          <div class="container">
+            <div class="row p-2">
+              <div class="col">Word:</div>
+              <div class="col">{{word_data.word_name}}</div>
+            </div>
+            <div class="row p-2">
+              <div class="col">Meaning:</div>
+              <div class="col">{{word_data.meaning}}</div>
+            </div>
+            <div class="row p-2">
+              <div class="col">Example:</div>
+              <div class="col">{{word_data.example}}</div>
+            </div>
+            {% if word_data.category %}
+            <div class="row p-2">
+              <div class="col">category:</div>
+              <div class="col">{{word_data.category}}</div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <form action="" method="post">
+          {% csrf_token %}
+
+
+          <div class="h2 p-2 text-center">Other Options</div>
+          <div class="other-options d-flex justify-content-around pl-pr-2">
+            <button type="submit" class="btn btn-info btn-lg" href="{% url 'word-details' word_data.id request.user.id %}" role="button"
+            >
+            {% if not sortbycat %}
+            Sort By Category
+            {% else %}
+            Show Word List
+            {% endif %}
+            </button>
+          <a
+          class="btn btn-outline-primary btn-lg"
+          href="{% url 'add-word' request.user.id %}"
+          role="button"
+          ><i
+          class="temp-logo fa-solid fa-plus"
+          style="color: rgb(213, 213, 213)"
+          ></i>
+          Word</a
+          >
+          <a
+          class="btn btn-outline-warning btn-lg"
+          href="{% url 'add-category' request.user.id %}"
+          role="button"
+          ><i
+              class="temp-logo fa-solid fa-plus"
+              style="color: rgb(213, 213, 213)"
+            ></i>
+            Category</a
+            >
+          </div>
+        </form>
+        </div>
+        <div class="col-3" style="order: 2px solid white">
+          <div class="h2 pt-2 text-center">Categories</div>
+        <div class="words-list">
+
+          {% include 'gre/display_categories.html' %}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

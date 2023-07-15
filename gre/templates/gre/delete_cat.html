@@ -1,0 +1,19 @@
+{% include 'index.html' %} {% block content %}
+<div id="deleteform" class="container text-center text-light ">
+    <form action="" method="post">
+        {% csrf_token %}
+        <h2>Are you sure you want to delete</h2>
+        <h3><strong>{{cat.category_name}}?</strong></h3>
+        <h6 style="padding: 15px;">(If deleting a category, the words associated with it will NOT be deleted and will be set to NULL)</h6>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</div>
+<style>
+    #deleteform {
+        padding: 40px;
+        margin-top: 80px;
+
+    }
+</style>
+
+{% endblock content%}

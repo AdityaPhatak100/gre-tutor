@@ -1,0 +1,119 @@
+{% include 'index.html' %} {% block content %}
+<div class="container text-light">
+  {% include 'gre/display_errors.html' %} {% if nodata %}
+
+<div class="alert alert-warning alert-dismissible fade show">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>No such word exists!</strong>
+</div>
+{% endif %}
+
+<div class="addword d-flex justify-content-around align-items-center">
+  <form action="" method="POST">
+    {% csrf_token %}
+    <div class="text-center">
+      <h1>Edit Word Details</h1>
+    </div>
+    <table>
+      <tr>
+        <th><label for="id_word_name">Word name:</label></th>
+        <td>
+          <input
+            readonly
+            type="text"
+            name="word_name"
+            minlength="1"
+            maxlength="50"
+            required
+            id="id_word_name"
+            value="{{word.word_name.capitalize}}"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <th><label for="id_meaning">Word meaning:</label></th>
+        <td>
+          <textarea
+            {{enableTA}}
+            required
+            name="meaning"
+            id="id_meaning"
+            cols="40"
+            rows="4"
+            value=""
+          >
+{{word.meaning.capitalize}}</textarea
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <th><label for="id_example">Word example:</label></th>
+        <td>
+          <textarea
+            {{enableTA}}
+            required
+            name="example"
+            id="id_example"
+            cols="40"
+            rows="4"
+            value=""
+          >
+{{word.example.capitalize}}</textarea
+          >
+        </td>
+      </tr>
+
+      <tr>
+        <th><label for="id_category">Category:</label></th>
+        <td>
+          {{form.category}}
+          <a
+            href="{% url 'add-category' request.user.id %}"
+            class="btn btn-warning"
+            >Add New Category</a
+          >
+        </td>
+      </tr>
+    </table>
+
+    <div class="d-flex justify-content-around">
+      <input
+        class="btn btn-success mt-4"
+        type="submit"
+        name="saveword"
+        value="Save Changes"
+      />
+
+    </div>
+  </form>
+</div>
+<style>
+  .input-icons i {
+    position: absolute;
+  }
+
+  .icon {
+    padding-top: 20px;
+    min-width: 40px;
+  }
+
+  textarea {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    color: white;
+    background-color: #2b2c2f;
+    border: none;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: inset 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+  }
+  textarea:focus {
+    outline: none;
+  }
+</style>
+{% endblock content%}

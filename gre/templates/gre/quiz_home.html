@@ -1,0 +1,36 @@
+{% include 'index.html' %} {% block content %}
+
+<div class="container text-center p-4" style="color: white">
+  {% for m in messages %}
+  {% if m.tags == 'success' %}
+  <div class="alert alert-success alert-dismissible fade show">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    {{m}}
+  </div>
+  {% else %}
+  <div class="alert alert-danger alert-dismissible fade show">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    {{m}}
+  </div>
+
+  {% endif %}
+  {% endfor %}
+  <h1 class="p-4">Select the correct word meaning</h1>
+  <div>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="question">{{word.word_name}}?</div>
+      <input type="hidden" name="answer" value="{{word.id}}" />
+      <div class="quiz-options">
+    {% for meaning in other_op %}
+        <button class="block" name="choice" value="{{meaning.id}}" type="submit">
+        {{meaning.meaning}}
+      </button>
+      {% comment %} <br> {% endcomment %}
+        {% endfor %}
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,157 @@
+{% extends 'index.html' %} {% load static %} {% block content %}
+
+<div class="container h-100">
+  <div
+    class="card text-white bg-dark"
+    style="border-radius: 25px; display: inline"
+  >
+    <div class="card-body p-4">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+          <p class="text-center h1 fw-bold mb-3 md-3 mt-3">Sign up</p>
+
+          <form class="mx-md-4" class="signupform" action="" method="POST">
+            {% comment %} {{form.email.errors}} {{form.password1.errors}}
+            {{form.password2.errors}} {% endcomment %} 
+            {% csrf_token %}
+            {% comment %} {{form.username.errors}} {% endcomment %}
+
+            <div class="d-flex flex-row align-items-center mb-4">
+              <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input
+                  type="text"
+                  name="username"
+                  maxlength="150"
+                  autocapitalize="none"
+                  autofocus=""
+                  required=""
+                  id="id_username"
+                />
+                <label class="form-label" for="id_username"
+                  >Set Username <b style="color: rgb(255, 65, 65)">*</b></label
+                >
+              </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+              <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+
+              <div class="form-outline flex-fill mb-0">
+                <input type="email" name="email" id="id_email" />
+                <label class="form-label" for="id_email">Your Email</label>
+              </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+              <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input
+                  type="password"
+                  name="password1"
+                  required
+                  id="id_password1"
+                />
+                <label class="form-label" for="id_password1"
+                  >Password <b style="color: rgb(255, 65, 65)">*</b></label
+                >
+              </div>
+            </div>
+
+            <div class="d-flex flex-row align-items-center mb-4">
+              <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+              <div class="form-outline flex-fill mb-0">
+                <input
+                  type="password"
+                  name="password2"
+                  required="id"
+                  ="id_password2"
+                />
+                <label class="form-label" for="id_password2"
+                  >Repeat your password
+                  <b style="color: rgb(255, 65, 65)">*</b></label
+                >
+              </div>
+            </div>
+            <div class="form-check d-flex justify-content-center mb-4">
+              <input
+                class="form-check-input me-2"
+                type="checkbox"
+                required
+                id="id_checkbox"
+              />
+              <label class="form-check-label" for="checkbox">
+                There are no Terms and Conditions. {% comment %} I agree all
+                statements in <a href="#">Terms of service</a> {% endcomment %}
+              </label>
+            </div>
+
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Register
+              </button>
+            </div>
+          </form>
+          <div></div>
+        </div>
+
+        <div>
+
+          {% for field in form %}
+          
+          {% if field.errors %}
+          
+          <div class="alert alert-warning alert-dismissible fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>{{field.label}}!</strong>
+
+            {% for error in field.errors %}
+            {{error}}
+            {% endfor %}
+          </div>
+
+          {% endif %}
+          
+          {% endfor %}
+
+        </div>
+        {% comment %}
+        <div
+          class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2"
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+            class="img-fluid"
+            alt="Sample image"
+          />
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+
+</script>
+<style>
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgb(0, 0, 0, 0);
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-bottom: 2px white solid;
+    outline: none;
+  }
+  ::-ms-reveal {
+    filter: invert(100%);
+  }
+</style>
+
+{% endblock content %}
